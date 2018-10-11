@@ -1,0 +1,74 @@
+<form class="form-horizontal" (ngSubmit)="onAddSubmit($event);addTicketForm.reset()"
+      #addTicketForm="ngForm">
+  <fieldset>
+    <!-- Form Name -->
+    <legend>درخواست پشتیبانی</legend>
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="type">نوع درخواست</label>
+      <div class="col-md-4">
+        <select id="type" name="type" class="form-control"
+                name="type"
+                [(ngModel)]="ticket.type" required>
+
+          <option value=""></option>
+          <option value="SOFTWARE">نرم افزاری</option>
+          <option value="HARDWARE">سخت افزاری</option>
+          <option value="NETWORK"> شبکه ای</option>
+          <option value="SECURITY">امنیتی</option>
+
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="title">عنوان درخواست</label>
+      <div class="col-md-4">
+        <input type="text" class="form-control" id="title" name="description" placeholder="عنوان درخواست را وارد کنید"
+               required
+               name="title"
+               [(ngModel)]="ticket.title">
+      </div>
+    </div>
+    <!-- Textarea -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="description">توضیحات</label>
+      <div class="col-md-4">
+        <textarea class="form-control" id="description" name="description"
+                  required
+                  name="description"
+                  [(ngModel)]="ticket.description"
+        >مشکل ایجاد شده را به طور کامل شرح دهید</textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label">اولویت درخواست</label><br>
+
+      <div class="col-md-4">
+
+        <div class="col-md-4">
+          <input type="radio" class="form-control" id="priority3"
+                 required name="priority"
+                 [(ngModel)]="ticket.orderPriority" value="LOW">معمولی
+        </div>
+        <div class="col-md-4">
+          <input type="radio" class="form-control" id="priority2"
+                 required name="priority"
+                 [(ngModel)]="ticket.orderPriority" value="MEDIUM">مهم
+        </div>
+        <div class="col-md-4">
+          <input type="radio" class="form-control" id="priority"
+                 required name="priority"
+                 [(ngModel)]="ticket.orderPriority" value="HIGH">فوری
+        </div>
+
+        <br>
+
+      </div>
+    </div>
+
+    <div class="form-group text-center">
+      <button class="btn btn-success" id="button" type="submit">ثبت اطلاعات</button>
+    </div>
+  </fieldset>
+</form>

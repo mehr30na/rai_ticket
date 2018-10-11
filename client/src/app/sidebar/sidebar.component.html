@@ -1,0 +1,34 @@
+<div class="nav-side-menu">
+  <div class="brand">راه آهن جمهوری اسلامی ایران</div>
+  <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+  <div class="menu-list">
+
+    <ul id="menu-content" class="menu-content collapse out">
+      <li>
+        <a href="#">
+          <i class="fa fa-dashboard fa-lg"></i> &nbsp;&nbsp;&nbsp; داشبورد
+        </a>
+      </li>
+
+
+      <li data-toggle="collapse" data-target="#products" class="collapsed active">
+        <a><i class="fa fa-gift fa-lg"></i><span class="arrow"></span>&nbsp;&nbsp;&nbsp;پشتیبانی</a>
+      </li>
+      <ul class="sub-menu collapse" id="products">
+        <li routerLink="addticket"><a>&nbsp;&nbsp;&nbsp;ثبت درخواست</a></li>
+        <li routerLink="userlistticket"><a>&nbsp;&nbsp;&nbsp;درخواستهای من</a></li>
+        <li routerLink="listticket"><a>&nbsp;&nbsp;&nbsp;لیست درخواست ها</a></li>
+
+
+      </ul>
+
+      <li>
+          <a href="#" (click)='logout()'>
+            <i class="fa fa-log-out fa-lg"></i> &nbsp;&nbsp;&nbsp; خروج
+          </a>
+        </li>
+
+    </ul>
+  </div>
+</div>

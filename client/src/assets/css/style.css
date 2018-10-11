@@ -1,0 +1,14 @@
+@font-face {
+  font-family: IRANSans-web;
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/iransans/IRANSansWeb.eot');
+  src: url('../fonts/iransans/IRANSansWeb.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/iransans/IRANSansWeb.woff2') format('woff2'),
+  url('../fonts/iransans/IRANSansWeb.woff') format('woff'),
+  url('../fonts/iransans/IRANSansWeb.ttf') format('truetype');
+}
+
+body, div, table, p {
+  font-family: IRANSans-web !important;
+}

@@ -1,0 +1,71 @@
+<!--<p>-->
+<!--{{ticket.type}}-->
+<!--{{ticket.title}}-->
+<!--{{ticket.description}}-->
+<!--{{ticket.orderPriority}}-->
+<!--{{ticket.orderStatus}}-->
+<!--{{ticket.readStatus}}-->
+<!--</p>-->
+<form class="form-horizontal" (ngSubmit)="update($event);editTicketForm.reset()" #editTicketForm="ngForm">
+
+  <table class="table table-striped table-hover">
+    <tr>
+      <td>شماره درخواست</td>
+      <td>نام کاربر</td>
+      <td>واحد</td>
+      <td>عنوان درخواست</td>
+      <td>توضیحات درخواست</td>
+      <td>وضعیت درخواست</td>
+      <td>اولویت درخواست</td>
+      <td>تاریخ درخواست</td>
+    </tr>
+    <tr>
+      <td>{{ticket.id}}</td>
+      <td>{{ticket.user_id}}</td>
+      <td>{{ticket.type}}</td>
+      <td>{{ticket.title}}</td>
+      <td>{{ticket.description}}</td>
+      <td>{{ticket.orderStatus}}</td>
+      <td>{{ticket.orderPriority}}</td>
+      <td>{{ticket.created_at}}</td>
+
+    </tr>
+  </table>
+
+  <div class="row">
+    <div class="col-md-12"><span>توضیحات پشتیبانی انجام شده</span>
+      &nbsp;
+      <textarea [(ngModel)]="ticket.response" name="response"></textarea>
+    </div>
+  </div>
+  <br><br>
+  <div class="row">
+    <div class="col-md-4">
+      <div>
+        <span>علامت به عنوان</span>
+        &nbsp;
+        <select [(ngModel)]="ticket.readStatus" name="readStatus">
+          <option value="READ">خوانده شده</option>
+          <option value="UNREAD">خوانده نشده</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <span>وضعیت درخواست</span>
+      <select [(ngModel)]="ticket.orderStatus" name="orderStatus">
+        <option value="INPROGRESS">در دست بررسی</option>
+        <option value="NEW">جدید</option>
+        <option value="PENDING">در حال انجام</option>
+        <option value="SOLVED">مشکل برطرف شد</option>
+        <option value="CLOSED">درخواست بسته شود</option>
+      </select>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+  <br><br>
+  <div class="row">
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-block btn-success">ثبت</button>
+    </div>
+  </div>
+</form>
