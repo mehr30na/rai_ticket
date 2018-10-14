@@ -12,8 +12,8 @@ import { Router } from "@angular/router";
 })
 export class AddTicketComponent implements OnInit {
 
-  private ticket = new Ticket();
-  private url = GlobalConfig.url;
+   ticket = new Ticket();
+   url = GlobalConfig.url;
 
   constructor(private config: GlobalConfig,
     private appService: AppService,
@@ -31,11 +31,7 @@ export class AddTicketComponent implements OnInit {
 
     // let $data = JSON.parse(JSON.stringify(this.ticket));
 
-
-    this.ticket.user_id = 5412;
-    this.ticket.response = 'DEFAULT';
-    // console.log($data);
-    this.appService.save(this.url + 'ticket', this.ticket).subscribe(() => {
+    this.appService.postJwt(this.url + 'ticket', this.ticket).subscribe(() => {
       // alert('با موفقیت ذخیره شد');
       this.router.navigateByUrl('main');
       this.config.alertAudio();

@@ -17,14 +17,19 @@ export class AppService {
   getJwt(url) {
     let authtoken: string = localStorage.getItem('token');
     let headers = new HttpHeaders();
-    headers = headers
-      .set('Authorization',"Bearer " + authtoken);
+    headers = headers.set('Authorization', "Bearer " + authtoken);
     return this.http.get(url, { headers: headers })
     // .map(this.ExtractData)
     // .catch(this.errorHandler)
   }
 
 
+  postJwt(url, data) {
+    let authtoken: string = localStorage.getItem('token');
+    let headers = new HttpHeaders();
+    headers = headers.set('Authorization', "Bearer " + authtoken);
+    return this.http.post(url, data, { headers: headers });
+  }
 
   postService(url, data) {
     return this.http.post(url, data)

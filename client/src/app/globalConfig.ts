@@ -4,7 +4,7 @@
 export class GlobalConfig {
 
   // static url = "http://172.25.137.25:8000/api/";
-  static url = "http://localhost/server/public/api/";
+  static url = "http://localhost/ticket/server/public/api/";
   // static url="http://localhost:8000/api/";
 
   alertAudio() {

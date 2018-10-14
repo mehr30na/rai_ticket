@@ -11,8 +11,8 @@ import {Router} from "@angular/router";
 })
 export class ListTicketComponent implements OnInit {
 
-  private tickets: Array<Ticket>;
-  private url = GlobalConfig.url;
+   tickets: Array<Ticket>;
+   url = GlobalConfig.url;
 
 
   constructor(private appService: AppService,

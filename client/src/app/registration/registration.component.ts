@@ -14,9 +14,9 @@ import { FormGroup, FormArray, FormBuilder,
 export class RegistrationComponent implements OnInit {
 
 
-  private user = new User();
-  private url = GlobalConfig.url
-  private repassword: number;
+   user = new User();
+   url = GlobalConfig.url
+   repassword: number;
   regForm: FormGroup;
 
   constructor(private config: GlobalConfig,

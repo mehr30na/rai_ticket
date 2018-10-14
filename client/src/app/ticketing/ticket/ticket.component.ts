@@ -12,8 +12,8 @@ import {ReadStatus} from "../../enum/readStatus";
 })
 export class TicketComponent implements OnInit {
 
-  private url = GlobalConfig.url;
-  private ticket = new Ticket();
+   url = GlobalConfig.url;
+   ticket = new Ticket();
 
   constructor(private appService: AppService,
               private router: Router,
