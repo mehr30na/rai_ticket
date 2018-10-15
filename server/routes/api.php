@@ -13,15 +13,18 @@ use Illuminate\Http\Request;
 |
 */
 
-
 Route::post('auth/register', 'UserController@register');
 Route::post('auth/login', 'UserController@login');
-Route::group(['middleware' => 'jwt.auth'], function () {
+
+// Route::group(['middleware' => ['cors']], function () {
+// });
+
+Route::group(['middleware' => ['jwt.auth']], function () {
     Route::get('user', 'UserController@getAuthUser');
+    Route::resource('ticket', 'TicketCntroller', ['except' => [
+        'create', 'edit'
+    ]]);
 });
 
-Route::resource('ticket', 'TicketCntroller', ['except' => [
-    'create', 'edit'
-]]);
 
 

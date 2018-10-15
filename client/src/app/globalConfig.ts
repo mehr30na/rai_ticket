@@ -4,9 +4,12 @@
 export class GlobalConfig {
 
   // static url = "http://172.25.137.25:8000/api/";
-  static url = "http://localhost/ticket/server/public/api/";
+  // static url = "http://localhost/raiticket/server/public/api/";
+  static url = "http://localhost/test/server/public/api/";
+  // static url = "http://localhost:8000/api/";
   // static url="http://localhost:8000/api/";
 
+  
   alertAudio() {
     var audio = new Audio();
     audio.src = "./assets/audio/1.mp3";
