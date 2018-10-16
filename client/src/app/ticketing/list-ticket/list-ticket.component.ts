@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {AppService} from "../../app.service";
-import {GlobalConfig} from "../../globalConfig";
-import {Ticket} from "../ticket";
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { AppService } from "../../app.service";
+import { GlobalConfig } from "../../globalConfig";
+import { Ticket } from "../ticket";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-list-ticket',
@@ -11,13 +11,12 @@ import {Router} from "@angular/router";
 })
 export class ListTicketComponent implements OnInit {
 
-   tickets: Array<Ticket>;
-   url = GlobalConfig.url;
+  tickets: Array<Ticket>;
+  url = GlobalConfig.url;
 
 
   constructor(private appService: AppService,
-              private config: GlobalConfig,
-              private router: Router,) {
+    private router: Router, ) {
   }
 
   ngOnInit() {
@@ -25,9 +24,8 @@ export class ListTicketComponent implements OnInit {
   }
 
   onDelete(item) {
-    this.appService.delete(this.url + 'ticket/' + item.id).subscribe(res => {
+    this.appService.deleteJWT(this.url + 'ticket/' + item.id).subscribe(res => {
       if (res) {
-        // alert('حذف با موفقیت انجام شد');
         this.getAllTickets();
       }
     });
@@ -35,7 +33,7 @@ export class ListTicketComponent implements OnInit {
 
   getAllTickets() {
     this.tickets = [];
-    this.appService.getAll(this.url + 'ticket').subscribe((res:Ticket[]) => {
+    this.appService.getJwt(this.url + 'ticket').subscribe((res: Ticket[]) => {
       if (res.length > 0) {
         this.tickets = res;
       }
@@ -43,7 +41,7 @@ export class ListTicketComponent implements OnInit {
   }
 
   viewAndEdit(item) {
-    this.router.navigateByUrl('main/ticket/' + item.id);
+    this.router.navigateByUrl('main/ticket/' + item.id+'/admin');
   }
 
 }

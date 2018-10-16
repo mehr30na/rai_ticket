@@ -4,7 +4,7 @@ export class User {
   code: string;
   username: string;
   password: string;
-  section: string;
+  department: string;
   post: string;
   phone: number;
 

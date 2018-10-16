@@ -24,6 +24,7 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::resource('ticket', 'TicketCntroller', ['except' => [
         'create', 'edit'
     ]]);
+    Route::get('myticket', 'TicketCntroller@myTicket');
 });
 
 

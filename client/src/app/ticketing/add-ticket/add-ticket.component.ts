@@ -5,6 +5,7 @@ import { AppService } from "../../app.service";
 import { Router } from "@angular/router";
 
 
+
 @Component({
   selector: 'app-add-ticket',
   templateUrl: './add-ticket.component.html',
@@ -23,22 +24,15 @@ export class AddTicketComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  onAddSubmit(e) {
-
-    e.preventDefault();
-    console.log(this.ticket);
-
-    // let $data = JSON.parse(JSON.stringify(this.ticket));
-
+  addTicket(ticket){
+    console.log(ticket);
     this.appService.postJwt(this.url + 'ticket', this.ticket).subscribe(() => {
-      // alert('با موفقیت ذخیره شد');
       this.router.navigateByUrl('main');
-      this.config.alertAudio();
+      // this.config.alertAudio();
     }, error => {
-      alert(error);
+      alert(JSON.stringify(error));
     });
-
   }
+
 
 }

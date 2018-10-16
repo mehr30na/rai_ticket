@@ -17,7 +17,7 @@ const routes: Routes = [
     {path: 'addticket', component: AddTicketComponent},
     {path: 'listticket', component: ListTicketComponent},
     {path: 'userlistticket', component: UserListTicketComponent},
-    {path: 'ticket/:id', component: TicketComponent},
+    {path: 'ticket/:id/:mode', component: TicketComponent},
   ]
   }
 ];

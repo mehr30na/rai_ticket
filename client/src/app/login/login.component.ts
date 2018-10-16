@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginCheck();
+    if(localStorage.getItem('token')){
+      this.loginCheck();
+    }
   }
 
   loginCheck() {
@@ -37,9 +39,9 @@ export class LoginComponent implements OnInit {
         if (res.success) {
           localStorage.setItem('token', res.data.token);
           this.router.navigateByUrl('main');
-        } else (
+        } else {
           alert(JSON.stringify(res.error, null, 4))
-        )
+        }
       });
     }
   }

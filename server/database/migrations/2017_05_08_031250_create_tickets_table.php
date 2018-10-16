@@ -19,7 +19,7 @@ class CreateTicketsTable extends Migration
             $table->string('type');
             $table->string('title');
             $table->string('description');
-            $table->text('response');
+            $table->text('response')->nullable();
             $table->string('orderPriority');
             $table->string('orderStatus')->default('NEW');
             $table->string('readStatus')->default('UNREAD');

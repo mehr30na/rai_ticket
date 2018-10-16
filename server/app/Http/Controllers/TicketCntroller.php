@@ -37,7 +37,15 @@ class TicketCntroller extends Controller
     public function store(Request $request)
     {
         //
-        return Ticket::Create($request->all());
+
+        return Ticket::Create([
+            'user_id'=>$request->user()->id,
+            'type'=>$request->type,
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'response'=>$request->response,
+            'orderPriority'=>$request->orderPriority,
+        ]);
     }
 
     /**
@@ -87,6 +95,14 @@ class TicketCntroller extends Controller
     {
         //
         return json_encode(Ticket::find($id)->delete());
+
+    }
+
+
+    public function myTicket(Request $request){
+        // return $request->user()->id;
+        return Ticket::where('user_id',$request->user()->id)
+                    ->orderBy('created_at', 'DESC')->get();
 
     }
 }

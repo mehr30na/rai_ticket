@@ -1,19 +1,35 @@
-<table class="table table-bordered table-condensed table-hover table-striped ">
+<table class="table table-bordered table-condensed ">
   <tr class="success">
+    <td>ردیف</td>
     <td>نام کاربر</td>
     <td>واحد</td>
-    <td>نوع درخواست</td>
+    <td>عنوان درخواست</td>
     <td>وضعیت درخواست</td>
+    <td>اولویت درخواست</td>
+    <td>تاریخ درخواست</td>
     <td>عملیات</td>
   </tr>
-  <tr>
-    <td>نام کاربر</td>
-    <td>واحد</td>
-    <td>نوع درخواست</td>
-    <td>وضعیت درخواست</td>
+  <tr *ngFor="let item of tickets;let i=index"
+      [ngClass]="{'unReadClass':item.readStatus == 'UNREAD','readClass':item.readStatus == 'READ'}">
+    <td>{{i+1}}</td>
+    <td>{{item.user_id}}</td>
+    <td>{{item.type}}</td>
+    <td>{{item.title}}</td>
+    <td *ngIf="item.orderStatus === 'NEW'">جدید</td>
+    <td *ngIf="item.orderStatus === 'INPROGRESS'">در دست بررسی</td>
+    <td *ngIf="item.orderStatus === 'PENDING'">در حال انجام</td>
+    <td *ngIf="item.orderStatus === 'SOLVED'">مشکل برطرف شد</td>
+    <td *ngIf="item.orderStatus === 'CLOSED'">درخواست بسته</td>
+    <td *ngIf="item.orderPriority === 'HIGH'"><span class="blink"
+                                                    style="border: 1px solid red;border-radius: 5px;padding: 2px;color:red">فوری</span>
+    </td>
+    <td *ngIf="item.orderPriority === 'MEDIUM'">مهم</td>
+    <td *ngIf="item.orderPriority === 'LOW'">معمولی</td>
+    <td>{{item.created_at}}</td>
     <td>
-      <button class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-edit"></i></button>
-      <button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
+      <button class="btn btn-warning btn-sm" (click)="viewAndEdit(item)"><i class="glyphicon glyphicon-edit"></i>
+      </button>
+      <button class="btn btn-danger btn-sm" (click)="onDelete(item)"><i class="glyphicon glyphicon-trash"></i></button>
     </td>
   </tr>
 </table>

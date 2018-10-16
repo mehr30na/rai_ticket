@@ -14,6 +14,7 @@ export class TicketComponent implements OnInit {
 
    url = GlobalConfig.url;
    ticket = new Ticket();
+   mode:string = '';
 
   constructor(private appService: AppService,
               private router: Router,
@@ -23,22 +24,21 @@ export class TicketComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(res => {
       this.getTicket(res["id"]);
+      this.mode = res["mode"]
     });
   }
 
   getTicket(id) {
-    this.appService.getOne(this.url + 'ticket', id).subscribe((res:Ticket) => {
+    this.appService.getJwt(this.url + 'ticket/' + id).subscribe((res:Ticket) => {
       this.ticket = res;
       this.ticket.readStatus = ReadStatus.READ;
-      // this.appService.update(this.url+'ticket/'+ this.ticket.id , this.ticket);
     });
   }
 
   update(e) {
     e.preventDefault();
-    this.appService.update(this.url + 'ticket/' + this.ticket.id, this.ticket).subscribe(_ => {
-      if (_) {
-        // alert('با موفقیت ذخیره گردید!');
+    this.appService.updateJwt(this.url + 'ticket/' + this.ticket.id, this.ticket).subscribe(res => {
+      if (res) {
         this.router.navigateByUrl('main/listticket');
       }
     });

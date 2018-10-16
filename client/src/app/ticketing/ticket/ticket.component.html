@@ -41,7 +41,7 @@
   <br><br>
   <div class="row">
     <div class="col-md-4">
-      <div>
+      <div *ngIf="mode == 'admin'">
         <span>علامت به عنوان</span>
         &nbsp;
         <select [(ngModel)]="ticket.readStatus" name="readStatus">
@@ -50,7 +50,7 @@
         </select>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" *ngIf="mode == 'admin'">
       <span>وضعیت درخواست</span>
       <select [(ngModel)]="ticket.orderStatus" name="orderStatus">
         <option value="INPROGRESS">در دست بررسی</option>
@@ -63,7 +63,7 @@
     <div class="col-md-4"></div>
   </div>
   <br><br>
-  <div class="row">
+  <div class="row" *ngIf="mode == 'admin'">
     <div class="col-md-12">
       <button type="submit" class="btn btn-block btn-success">ثبت</button>
     </div>
