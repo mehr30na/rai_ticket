@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TicketCntroller extends Controller
 {
@@ -15,7 +16,13 @@ class TicketCntroller extends Controller
     public function index()
     {
         //
-        return Ticket::orderBy('created_at', 'DESC')->get();
+        // return Ticket::orderBy('created_at', 'DESC')->get();
+
+        return $users = DB::table('users')
+            ->join('tickets', 'users.id', '=', 'tickets.user_id')
+            ->select('users.name', 'tickets.*')
+            ->get();
+
     }
 
     /**
@@ -57,7 +64,10 @@ class TicketCntroller extends Controller
     public function show($id)
     {
         //
-        return Ticket::find($id);
+        //  return Ticket::find($id);
+         return $users = DB::table('users')
+            ->join('tickets', 'users.id', '=', 'tickets.user_id')
+            ->select('users.name', 'tickets.*')->where('tickets.id',$id)->get()->take(1);
     }
 
     /**

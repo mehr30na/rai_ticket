@@ -29,8 +29,8 @@ export class TicketComponent implements OnInit {
   }
 
   getTicket(id) {
-    this.appService.getJwt(this.url + 'ticket/' + id).subscribe((res:Ticket) => {
-      this.ticket = res;
+    this.appService.getJwt(this.url + 'ticket/' + id).subscribe((res:Ticket[]) => {
+      this.ticket = res[0];
       this.ticket.readStatus = ReadStatus.READ;
     });
   }

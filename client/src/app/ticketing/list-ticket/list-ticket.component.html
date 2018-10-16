@@ -12,7 +12,7 @@
   <tr *ngFor="let item of tickets;let i=index"
       [ngClass]="{'unReadClass':item.readStatus == 'UNREAD','readClass':item.readStatus == 'READ'}">
     <td>{{i+1}}</td>
-    <td>{{item.user_id}}</td>
+    <td>{{item.name}}</td>
     <td>{{item.type}}</td>
     <td>{{item.title}}</td>
     <td *ngIf="item.orderStatus === 'NEW'">جدید</td>
@@ -29,7 +29,7 @@
     <td>
       <button class="btn btn-warning btn-sm" (click)="viewAndEdit(item)"><i class="glyphicon glyphicon-edit"></i>
       </button>
-      <button class="btn btn-danger btn-sm" (click)="onDelete(item)"><i class="glyphicon glyphicon-trash"></i></button>
+      <button class="btn btn-danger btn-sm" (click)='onDelete(item)'><i class="glyphicon glyphicon-trash"></i></button>
     </td>
   </tr>
 </table>

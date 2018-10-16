@@ -1,7 +1,7 @@
 <table class="table table-bordered table-condensed ">
   <tr class="success">
     <td>ردیف</td>
-    <td>نام کاربر</td>
+    <!-- <td>نام کاربر</td> -->
     <td>واحد</td>
     <td>عنوان درخواست</td>
     <td>وضعیت درخواست</td>
@@ -12,7 +12,7 @@
   <tr *ngFor="let item of tickets;let i=index"
       [ngClass]="{'unReadClass':item.readStatus == 'UNREAD','readClass':item.readStatus == 'READ'}">
     <td>{{i+1}}</td>
-    <td>{{item.user_id}}</td>
+    <!-- <td>{{item.name}}</td> -->
     <td>{{item.type}}</td>
     <td>{{item.title}}</td>
     <td *ngIf="item.orderStatus === 'NEW'">جدید</td>
